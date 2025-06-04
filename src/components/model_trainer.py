@@ -13,7 +13,7 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.neighbors import KNeighborsRegressor
 from xgboost import XGBRegressor
-from catboost import CatBoostRegressor
+#from catboost import CatBoostRegressor
 from src.logger import logging
 from src.exception import CustomException
 
@@ -47,7 +47,7 @@ class ModelTrainer:
                 "Gradient Boosting": GradientBoostingRegressor(learning_rate=0.1, n_estimators=100),
                 "Linear Regression": LinearRegression(),
                 "XGBRegressor": XGBRegressor(learning_rate=0.1, n_estimators=100),
-                "CatBoosting Regressor": CatBoostRegressor(verbose=False, train_dir="catboost_logs"),
+               # "CatBoosting Regressor": CatBoostRegressor(verbose=False, train_dir="catboost_logs"),
                 "AdaBoost Regressor": AdaBoostRegressor(learning_rate=0.1, n_estimators=100),
                 "K-Neighbors Regressor": KNeighborsRegressor(),
             }
@@ -74,11 +74,6 @@ class ModelTrainer:
                     'learning_rate': [0.1, 0.01, 0.05, 0.001],
                     'n_estimators': [8, 16, 32, 64, 128, 256],
                     'max_depth': [3, 5, 7, 9]
-                },
-                "CatBoosting Regressor": {
-                    'depth': [6, 8, 10],
-                    'learning_rate': [0.01, 0.05, 0.1],
-                    'iterations': [30, 50, 100]
                 },
                 "AdaBoost Regressor": {
                     'learning_rate': [0.1, 0.01, 0.5, 0.001],
